@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>RuvRest</artifactId>
+        <groupId>com.ruv.rest</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>RuvRestWeb</artifactId>
+    <packaging>war</packaging>
+
+    <name>RuvRestWeb</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.ruv.rest</groupId>
+            <artifactId>RuvRestDao</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.ruv.rest</groupId>
+            <artifactId>RuvRestService</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+
+        </dependency>
+        -->
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-testCompile</id>
+                        <configuration>
+                            <compilerArgument>-Xlint:-processing</compilerArgument>
+                            <compilerArgument>-proc:none</compilerArgument>
+                        </configuration>
+                    </execution>
+                </executions>
+                <!--
+                <configuration>
+                    <debug>false</debug>
+                </configuration>
+                -->
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <!--<archive>-->
+                    <!--<manifest>-->
+                    <!--<addClasspath>true</addClasspath>-->
+                    <!--<addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+                    <!--</manifest>-->
+                    <!--<manifestEntries>-->
+                    <!--&lt;!&ndash;<Dependencies>org.slf4j, org.hornetq, com.google.guava, com.google.gson, org.postgresql, org.apache.commons.lang3, org.primefaces, org.primefaces-extensions</Dependencies>&ndash;&gt;-->
+                    <!--<Build-Time>${maven.build.timestamp}</Build-Time>-->
+                    <!--<Built-By>S|ngular</Built-By>-->
+                    <!--</manifestEntries>-->
+                    <!--</archive>-->
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>7.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

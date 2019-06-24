@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>RuvRest</artifactId>
+        <groupId>com.ruv.rest</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>RuvRestService</artifactId>
+    <packaging>jar</packaging>
+
+    <name>RuvRestService</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ruv.rest</groupId>
+            <artifactId>RuvRestDao</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+    </dependencies>
+
+
+
+        <build>
+            <finalName>${project.artifactId}</finalName>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <debug>false</debug>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>copy</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${endorsed.dir}</outputDirectory>
+                                <silent>true</silent>
+                                <artifactItems>
+                                    <artifactItem>
+                                        <groupId>javax</groupId>
+                                        <artifactId>javaee-endorsed-api</artifactId>
+                                        <version>7.0</version>
+                                        <type>jar</type>
+                                    </artifactItem>
+                                </artifactItems>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+
+</project>
